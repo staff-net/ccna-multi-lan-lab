@@ -50,3 +50,34 @@ line console 0
  password ConsolePass123!
  login
  exit
+
+'''
+
+### Interface IP Provisioning & Link Activation
+
+'''
+interface GigabitEthernet0/0
+ ip address 192.168.1.1 255.255.255.0
+ no shutdown
+ exit
+
+interface GigabitEthernet0/1
+ ip address 10.1.1.1 255.255.255.0
+ no shutdown
+ exit
+
+interface GigabitEthernet0/2
+ ip address 172.16.1.1 255.255.255.0
+ no shutdown
+ exit
+
+end
+copy running-config startup-config
+'''
+
+## 🔍 Testing & Verification
+End-to-end connectivity across subnets verified via ICMP Echo Requests (ping):
+- `PC0 (192.168.1.10)` → Default Gateway `192.168.1.1`: **Success**'
+- PC0 (192.168.1.10) → Default Gateway (192.168.1.1): Success
+- PC0 (192.168.1.10) → Direct Host PC2 (10.1.1.10): Success
+- PC0 (192.168.1.10) → LAN 2 Host PC3 (172.16.1.10): Success
