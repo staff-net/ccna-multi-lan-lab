@@ -51,11 +51,11 @@ line console 0
  login
  exit
 
-'''
+```
 
 ### Interface IP Provisioning & Link Activation
 
-'''
+```
 interface GigabitEthernet0/0
  ip address 192.168.1.1 255.255.255.0
  no shutdown
@@ -73,11 +73,11 @@ interface GigabitEthernet0/2
 
 end
 copy running-config startup-config
-'''
+```
 
 ## 🔍 Testing & Verification
 End-to-end connectivity across subnets verified via ICMP Echo Requests (ping):
-- `PC0 (192.168.1.10)` → Default Gateway `192.168.1.1`: **Success**'
+
 - PC0 (192.168.1.10) → Default Gateway (192.168.1.1): Success
 - PC0 (192.168.1.10) → Direct Host PC2 (10.1.1.10): Success
 - PC0 (192.168.1.10) → LAN 2 Host PC3 (172.16.1.10): Success
